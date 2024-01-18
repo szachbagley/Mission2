@@ -4,6 +4,7 @@ using Mission2;
 
 internal class Program
 {
+    //a program to roll two dice and display the results.
     private static void Main(string[] args)
     {
         int numRolls;
@@ -12,7 +13,6 @@ internal class Program
         int[] results;
         string resultLine;
         double rollPct;
-        double totalPct = 0;
         Dice dr;
 
 
@@ -25,26 +25,29 @@ internal class Program
         isInt = int.TryParse(userInput, out int result);
         if (isInt)
         {
+            //rolls according to user input
             numRolls = int.Parse(userInput);
             dr = new Dice();
+            //retrieves arrow from roll method
             results = dr.roll(numRolls);
+            //output results
             Console.WriteLine("DICE ROLLING SIMULATION RESULTS");
             Console.WriteLine("Each \"*\" represents 1% of the total number of rolls.");
             Console.WriteLine("Total number of rolls = " + numRolls);
+            //result for each number
             for (int i = 0; i < results.Length; i++)
             {
+                //calculate percentage of total
                 rollPct = Math.Round(100 * ((double)results[i] / numRolls));
-                totalPct = totalPct + rollPct;
                 resultLine = (i + 2).ToString() + ": ";
+                //generate appropriate number of *s
                 for (int j = 0; j < (int)rollPct; j++)
                 {
                     resultLine = resultLine + "*";
                 }
                 Console.WriteLine(resultLine);
             }
-            //blah
             Console.WriteLine("Thank you for using the dice throwing simulator. Goodbye!");
-            Console.WriteLine("Total pct for testing: " + totalPct);
         }
         else
         {
