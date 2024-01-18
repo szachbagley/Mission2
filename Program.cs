@@ -42,6 +42,7 @@ internal class Program
                 }
                 Console.WriteLine(resultLine);
             }
+            //blah
             Console.WriteLine("Thank you for using the dice throwing simulator. Goodbye!");
             Console.WriteLine("Total pct for testing: " + totalPct);
         }
